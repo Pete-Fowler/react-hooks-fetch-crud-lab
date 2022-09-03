@@ -22,11 +22,18 @@ function App() {
     setQuestions(questions => questions.filter(question => question.id !== id));
   }
 
+  function updateAnswer(obj) {
+    setQuestions(questions => questions.map(question => {
+      return question.id === obj.id ? obj : question;
+    }))
+  }
+  
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
       {page === "Form" ? <QuestionForm addQuestion={addQuestion}/> 
-        : <QuestionList questions={questions} deleteItem={deleteItem}/>}
+        : <QuestionList questions={questions} deleteItem={deleteItem} 
+        updateAnswer={updateAnswer} />}
     </main>
   );
 }
