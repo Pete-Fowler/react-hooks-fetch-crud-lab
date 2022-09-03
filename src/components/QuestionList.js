@@ -1,7 +1,7 @@
 import React from "react";
 import Question from './Question';
 
-function QuestionList({ questions }) {
+function QuestionList({ questions, deleteItem }) {
   return (
     <section>
       <h1>Quiz Questions</h1>
@@ -9,9 +9,11 @@ function QuestionList({ questions }) {
       {questions.map(question => 
         <Question 
           key={question.id} 
+          id={question.id} 
           prompt={question.prompt} 
           answers={question.answers} 
           correctIndex={question.correctIndex}
+          deleteItem={deleteItem}
         />)}
       </ul>
     </section>

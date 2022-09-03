@@ -18,11 +18,15 @@ function App() {
       [...questions, question]);
   }
 
+  function deleteItem(id) {
+    setQuestions(questions => questions.filter(question => question.id !== id));
+  }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
       {page === "Form" ? <QuestionForm addQuestion={addQuestion}/> 
-        : <QuestionList questions={questions}/>}
+        : <QuestionList questions={questions} deleteItem={deleteItem}/>}
     </main>
   );
 }
