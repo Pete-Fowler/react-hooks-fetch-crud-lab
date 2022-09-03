@@ -11,7 +11,7 @@ function QuestionList({ questions }) {
           key={question.id} 
           prompt={question.prompt} 
           answers={question.answers} 
-          correctIndex={questions.correctIndex}
+          correctIndex={question.correctIndex}
         />)}
       </ul>
     </section>

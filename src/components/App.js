@@ -13,9 +13,11 @@ function App() {
     .then(data => setQuestions(data));
   }, []);
 
-  function addQuestion(questionObj) {
-    setQuestions(questions => [...questions, questionObj]);
+  function addQuestion(question) {
+    setQuestions(questions => 
+      [...questions, question]);
   }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
